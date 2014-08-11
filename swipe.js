@@ -86,17 +86,17 @@ function Swipe(container, options) {
 
   }
 
-  function prev() {
+  function prev(speed) {
 
-    if (options.continuous) slide(index-1);
-    else if (index) slide(index-1);
+    if (options.continuous) slide(index-1, speed);
+    else if (index) slide(index-1, speed);
 
   }
 
-  function next() {
+  function next(speed) {
 
-    if (options.continuous) slide(index+1);
-    else if (index < slides.length - 1) slide(index+1);
+    if (options.continuous) slide(index+1, speed);
+    else if (index < slides.length - 1) slide(index+1, speed);
 
   }
 
@@ -480,20 +480,20 @@ function Swipe(container, options) {
       slide(to, speed);
 
     },
-    prev: function() {
+    prev: function(speed) {
 
       // cancel slideshow
       stop();
 
-      prev();
+      prev(speed);
 
     },
-    next: function() {
+    next: function(speed) {
 
       // cancel slideshow
       stop();
 
-      next();
+      next(speed);
 
     },
     stop: function() {
