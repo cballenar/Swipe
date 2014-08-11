@@ -467,6 +467,9 @@ function Swipe(container, options) {
 
   // expose the Swipe API
   return {
+    // expose options
+    options: options,
+
     setup: function() {
 
       setup();
@@ -496,6 +499,19 @@ function Swipe(container, options) {
       next(speed);
 
     },
+
+    start: function(time) {
+
+      // cancel slideshow
+      stop();
+
+      // reset delay
+      delay = options.auto || time || 0;
+
+      // start slideshow
+      begin();
+    },
+
     stop: function() {
 
       // cancel slideshow
